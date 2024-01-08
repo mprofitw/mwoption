@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+$default-font: "roboto", "arial", "sans-serif";
+
+@import "./colors";
+// @import "./properties";
+// @import "./tasks";
+// @import "./folders";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+  font-family: $default-font;
+  text-decoration: none;
+  color: $text-color;
+}
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  // background-color: cadetblue; 
+}
+
+main{
+  display: flex;
+  flex-grow: 2;
+  /* padding: 30px 0; */
+  // background-color: red;
+}
+.navigation-aside{
+  min-width: 160px;
+  // background-color: #0388e5;
+}
+.main-content{
+  flex-grow: 1;
+  // background-color: green;
+}
+.homePage{
+  text-align: center;
+  font-size: 2rem;
+}
+
+
+

@@ -1,0 +1,52 @@
+@import "./colors";
+
+// .burger {
+//   position: fixed;
+//   top: 5px;
+//   right: 30px;
+//   font-size: 50px;
+//   color: var(--header-color);
+//   z-index: 1;
+//   cursor: pointer;
+//   display: none;
+// }
+// .burger:hover {
+//   color: black;
+// }
+.burger-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  top: 80vh;
+  background-color: black;
+  font-size: 1.6rem;
+  height: 40vh;
+
+  .burger-menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    font-size: 3rem;
+    margin-left: 200px;
+  }
+  .burger-menu-item {
+    display: block;
+    // text-align: center;
+    padding: 15px 70px;
+    color: white;
+    text-decoration: none;
+  }
+  .burger-menu-item:hover {
+    color: $main-blue-color-hover;
+  }
+  .active {
+    color: $main-blue-color;
+    font-weight: bold;
+  }
+}
+.active-burger-menu {
+  display: flex;
+}

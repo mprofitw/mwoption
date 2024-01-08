@@ -1,0 +1,3 @@
+*** Remortgage kalkulator ***
+1. keyUp poprawa zmian wartości.
+2. Poprawa validation.

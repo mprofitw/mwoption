@@ -1,0 +1,342 @@
+@import "./colors";
+// Tabela
+.wrapper-properties {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+  width: 70vw;
+}
+.property-table {
+  border-collapse: collapse;
+  font-size: 1.6rem;
+
+  thead {
+    // text-align: center;
+    border-bottom: 1px solid black;
+    color: $main-blue-color;
+
+    th {
+      padding: 10px;
+      background-color: $table-tfoot;
+    }
+  }
+  tr {
+    background-color: $table-row;
+    &:nth-of-type(odd) {
+      background-color: #e9e9e9;
+    }
+    &:hover {
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  td {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.4rem;
+  }
+  .choose-property{
+    color: $main-blue-color;
+    cursor: pointer;
+  }
+  .choose-property:hover{
+    text-decoration: underline;
+    color: $text-color;
+  }
+}
+.tfoot-table-property {
+  border-top: 1px solid black;
+  height: 40px;
+}
+.tfoot-col-property {
+  background-color: $table-tfoot;
+}
+.property-add-btn {
+  align-self: flex-end;
+  padding: 8px;
+  background-color: $main-blue-color;
+  color: white;
+  width: 110px;
+  margin: 20px 0px 20px 0px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.property-add-btn:hover {
+  background-color: $main-blue-color-hover;
+}
+
+.fa-solid,
+.fa-regular {
+  color: $main-blue-color;
+  padding-right: 15px;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+// formularze
+.add-property-btn {
+  padding: 8px;
+  background-color: $main-blue-color;
+  color: white;
+  width: 110px;
+  margin: 20px 10px 20px 0px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-left: 100px;
+}
+.add-property-btn:hover {
+  background-color: $main-blue-color-hover;
+}
+.title-properties,
+.title-addProperty {
+  font-size: 2.5rem;
+  margin-top: 30px;
+  // text-align: center;
+  margin-left: 110px;
+  margin-bottom: 30px;
+}
+
+.add-property-menu-btn {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: $main-blue-color;
+  border: none;
+  border-top: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  transition: 0.4s;
+}
+.add-property-menu-btn:hover {
+  background-color: $border-color;
+  color: $text-color;
+  // border-top: 2px solid $main-blue-color ;
+}
+.active-menu-btn {
+  background-color: white;
+  color: $text-color;
+  border-top: 2px solid $main-blue-color;
+  font-weight: bold;
+}
+.content-add-property {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  margin-left: 10px;
+  width: 75vw;
+  // height: 90vh;
+  margin-bottom: 80px;
+}
+.wrapper-add-property {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.active-menu-btn {
+  background-color: white;
+  color: $text-color;
+  border-top: 2px solid $main-blue-color;
+}
+.title-content-add-property {
+  background-color: $border-color;
+  padding: 8px;
+  color: $text-color;
+  font-size: 1.6rem;
+}
+.middle-content-add-property {
+  display: flex;
+  font-size: 1.4rem;
+  margin-left: 70px;
+  margin-top: 25px;
+  height: 20vh;
+  margin-bottom: 15px;
+}
+.label-group-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.input-group-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  width: 12vw;
+}
+.input-address {
+  margin-left: 5px;
+  padding: 5px;
+}
+.label-group-address span {
+  color: red;
+}
+// .active {
+//      background-color: red;
+//   color: $text-color;
+//   border-top: 2px solid $main-blue-color;
+// }
+.save-content-add-property {
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: $border-color;
+  padding: 8px;
+  color: $text-color;
+  font-size: 1.6rem;
+}
+.wrapper-description {
+  display: flex;
+  font-size: 1.4rem;
+  margin-left: 70px;
+  margin-top: 25px;
+  height: 30vh;
+  margin-bottom: 15px;
+}
+.notes-property-group {
+  display: flex;
+  font-size: 1.4rem;
+  margin-left: 70px;
+  margin-top: 25px;
+  // height: 30vh;
+  margin-bottom: 20px;
+}
+.notes-property-group textarea {
+  margin-left: 50px;
+  width: 70%;
+  padding: 5px;
+  font-size: 1.3rem;
+  resize: none;
+}
+.wrapper-financial {
+  display: flex;
+  flex-direction: column;
+  // height: 100%;
+
+  .purchase-details-add-property {
+    display: flex;
+    font-size: 1.4rem;
+    margin-left: 70px;
+    margin-top: 25px;
+    height: 22vh;
+    margin-bottom: 25px;
+  }
+  .label-group-purchase {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .input-group-purchase {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 20px;
+  }
+  .input-financial {
+    margin-left: 5px;
+    padding: 5px;
+  }
+}
+.title-financial-add-property {
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: $border-color;
+  padding: 8px;
+  color: $text-color;
+  font-size: 1.6rem;
+}
+.wrapper-rent {
+  // display: flex;
+  font-size: 1.4rem;
+  margin-left: 70px;
+  margin-top: 25px;
+  // height: 25vh;
+  margin-bottom: 25px;
+}
+.wrapper-mortgage {
+  display: flex;
+  font-size: 1.4rem;
+  margin-left: 70px;
+  margin-top: 25px;
+  height: 25vh;
+  margin-bottom: 25px;
+  // flex-grow: 1;
+}
+.add-property-save-btn {
+  padding: 7px 12px;
+  background-color: $main-blue-color;
+  color: white;
+  margin: 5px 10px;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.btn-save-group {
+  margin-left: 50px;
+}
+.add-property-save-btn:hover {
+  background-color: $main-blue-color-hover;
+}
+.form-photos {
+  font-size: 1.6rem;
+  margin: 50px 50px;
+}
+.form-photos p {
+  margin-bottom: 10px;
+}
+.wrapper-additional-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+
+  .wrapper-group {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 70px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .info-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .input-addInfo {
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  .label-addInfo {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 25%;
+  }
+  .list-appliances {
+    display: flex;
+    flex-direction: column;
+   
+  }
+}
+.currency{
+  background-color: white;
+  padding: 5px;
+  border: none;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  // border-right: 1px solid black;
+  width: 40px;
+}
+.form-error{
+  color: tomato;
+  margin-left: 5px;
+}
