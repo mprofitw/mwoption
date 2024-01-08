@@ -45,12 +45,7 @@ const PropertyDetails = (props) => {
         // this.setState({
         //   taskName: "",
         //   taskType: 0,
-        //   property: 0,
-        //   dueDate: "",
-        //   priority: 0,
-        //   statusTask: 0,
-        //   notes: "",
-        // });
+     
         console.log(props.properties);
       }
       props.handleShowPropertyForm();
