@@ -19,6 +19,9 @@
 .tasks-table {
   border-collapse: collapse;
   font-size: 1.6rem;
+  border: 1px solid #909090;
+  -webkit-box-shadow: 5px 5px 10px #909090;
+          box-shadow: 5px 5px 10px #909090;
 }
 
 .tasks-table thead {

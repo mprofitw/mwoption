@@ -1,6 +1,7 @@
 import "../../sass/tasks.scss";
 import React from "react";
 const Task = (props) => {
+  const {id} = props.task
   const { dueDate, priority } = props.task;
   // if(priority === 'Low'){
   //     return medium
@@ -56,13 +57,10 @@ const Task = (props) => {
           {/* <td>{props.task.notes}</td> */}
           <i
             className="fa-solid fa-pen-to-square"
-            onClick={e => {
-              props.showEdit()
-              // this.showNotes();
-         }}
+            onClick={ ()=>props.edit(id) }
           ></i>
           {/* onClick={()=>props.deleteTask(props.task.id)} */}
-          <i className="fa-solid fa-trash" onClick={props.deleteTask}></i>
+          <i className="fa-solid fa-trash" onClick={()=>props.deleteTask(id)}></i>
         </td>
       </tr>
     </>

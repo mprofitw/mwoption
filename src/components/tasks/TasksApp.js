@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../sass/tasks.scss";
 import TaskList from "../tasks/TaskList";
-import AddTask from "../tasks/AddTask";
+import AddTask from "../tasks/AddTask2";
 import EditTask from "../tasks/EditTask";
 import Notes from "../tasks/Notes";
 import Task from "../tasks/Task";
@@ -14,9 +14,10 @@ class TasksApp extends Component {
     showNotes: false,
     searchTaskName: "",
     searchStatus: 0,
+    newTaskToEdit: [],
     tasks: [
       {
-        id: 1,
+        id: 0,
         taskName: "Naprawa kranu",
         taskType: "Property Maintance",
         property: "25 High Street",
@@ -27,7 +28,7 @@ class TasksApp extends Component {
         active: true,
       },
       {
-        id: 2,
+        id: 1,
         taskName: "Wymiana bojlera",
         taskType: "Garden",
         property: "8b/2 Morgan Street",
@@ -38,7 +39,7 @@ class TasksApp extends Component {
         active: true,
       },
       {
-        id: 3,
+        id: 2,
         taskName: "Zburzyć ścianę",
         taskType: "Other",
         property: "8b/2 Morgan Street",
@@ -49,7 +50,7 @@ class TasksApp extends Component {
         active: true,
       },
       {
-        id: 4,
+        id: 3,
         taskName: "Koszenie trawy",
         taskType: "Garden",
         property: "62 Duncan Place",
@@ -60,7 +61,7 @@ class TasksApp extends Component {
         active: false,
       },
       {
-        id: 5,
+        id: 4,
         taskName: "Zburzyć ścianę ",
         taskType: "Other",
         property: "8b/2 Morgan Street",
@@ -71,15 +72,15 @@ class TasksApp extends Component {
         active: false,
       },
       {
-        id: 6,
+        id: 5,
         taskName: "Wymiana okien ",
         taskType: "Other",
-        property: "8b/2 Morgan Street",
+        property: "17 Green Walk",
         dueDate: "2023-10-15",
-        priority: "Low",
-        statusTask: "Completed",
-        notes: "Okna PCV",
-        active: true,
+        priority: "Medium",
+        statusTask: "In progress",
+        notes: "Plasterboard",
+        active: false,
       },
     ],
     searchArr: [],
@@ -110,22 +111,31 @@ class TasksApp extends Component {
     });
     console.log("to jest to");
   };
-  editTask = (e) => {
-    const id = Number(e.target.parentNode.parentNode.dataset.id);
+  // const [eProperty, setEProperty] = useState([]);
 
-    const tasks = [...this.state.tasks];
-    tasks.forEach((el, index) => {
-      if (index === id) {
-        el.active = false;
-      }
-    });
+  edit = (id,taskName,taskType) => {
+    console.log("Znalazlem index do edycji task" + id);
+    let tasksEdit = [...this.state.tasks];
+       const index = tasksEdit.findIndex((task) => task.id === id);
+    this.showModal();
+ 
+    const editTask = {
+      taskName: this.state.tasks[index].taskName,
+      taskType: this.state.tasks[index].taskType,
+      property: this.state.tasks[index].property,
+      dueDate: this.state.tasks[index].dueDate,
+      priority: this.state.tasks[index].priority,
+      statusTask: this.state.tasks[index].statusTask,
+      notes: this.state.tasks[index].notes,
+      active: this.state.tasks[index].active,
+    };
+    this.setState({ newTaskToEdit: editTask });
 
-    this.setState({
-      tasks: tasks,
-    });
-    console.log(id);
-    console.log(tasks);
+      //  const abc = this.state.tasks.splice(index, 1,editTask);
+      //  this.setState({tasks: abc})
+
   };
+
   handleShowNotes = (e) => {
     const id = Number(e.target.parentNode.parentNode.dataset.id);
     console.log(id);
@@ -151,11 +161,14 @@ class TasksApp extends Component {
         .toLowerCase()
         .includes(this.state.searchTaskName.toLowerCase())
     );
+
     this.setState({
       searchArr: tasks,
     });
-    // console.log(tasks);
+
+     console.log(this.state.tasks);
   };
+
   searchStatus = (e) => {
     this.setState({
       searchStatus: e.target.value,
@@ -174,21 +187,36 @@ class TasksApp extends Component {
       tasks: tasks,
     });
   };
-  handleDeleteTask = (e) => {
-    const id = Number(e.target.parentNode.parentNode.dataset.id);
-   
+  handleDeleteTask = (id) => {
+    console.log('ten id to ' + id);
     if (
       // eslint-disable-next-line no-restricted-globals
-      confirm("Are you sure you want to delete the selected task?") === false
+      confirm("Are you sure you want to delete the selected property?") ===
+      false
     ) {
       return;
     }
-    const tasks = [...this.state.tasks];
-    tasks.splice(id, 1);
-    this.setState({
-      tasks: tasks,
-    });
+    // let taskNew = [...this.state.tasks];
+    const index = this.state.tasks.findIndex((task) => task.id === id);
+    this.state.tasks.splice(index, 1);
+    this.setState({tasks: this.state.tasks})
+    console.log(this.state.tasks);
   };
+  // handleDeleteTask = (e) => {
+  //   const id = Number(e.target.parentNode.parentNode.dataset.id);
+
+  //   if (
+  //     // eslint-disable-next-line no-restricted-globals
+  //     confirm("Are you sure you want to delete the selected task?") === false
+  //   ) {
+  //     return;
+  //   }
+  //   const tasks = [...this.state.tasks];
+  //   tasks.splice(id, 1);
+  //   this.setState({
+  //     tasks: tasks,
+  //   });
+  // };
   addTask = (
     taskName,
     taskType,
@@ -239,7 +267,7 @@ class TasksApp extends Component {
               value={this.state.searchTaskName}
               onChange={this.handleSearchTaskName}
               onKeyUp={this.handleSearch}
-            />
+            />{" "}
             <select
               className="search-status"
               value={this.state.searchStatus}
@@ -247,34 +275,33 @@ class TasksApp extends Component {
               id="statusTask"
             >
               <option value="0" selected disabled>
-                - Select -
-              </option>
-              <option value="In progress">In Progress</option>
-              <option value="Waiting">Waiting</option>
-              <option value="Completed">Completed</option>
-            </select>
+                -Select -
+              </option>{" "}
+              <option value="In progress"> In Progress </option>{" "}
+              <option value="Waiting"> Waiting </option>{" "}
+              <option value="Completed"> Completed </option>{" "}
+            </select>{" "}
             <button
               className="tasks-search-btn"
               onClick={this.handleSearchStatus}
             >
-              Apply
-            </button>
+              Apply{" "}
+            </button>{" "}
             <button
               className="tasks-search-btn"
               onClick={this.handleSearchClear}
             >
-              Clear
-            </button>
-          </div>
+              Clear{" "}
+            </button>{" "}
+          </div>{" "}
           <button
             className="tasks-add-btn"
             onClick={(e) => {
               this.showModal();
             }}
           >
-            Add Task
+            Add Task{" "}
           </button>
-
           <TaskList
             tasks={
               this.state.searchArr.length === 0
@@ -282,40 +309,38 @@ class TasksApp extends Component {
                 : this.state.searchArr
             }
             deleteTask={this.handleDeleteTask}
-            editTask={this.editTask}
+            edit={this.edit}
             showModal={this.showModal}
             showModalEdit={this.state.showModalEdit}
             notes={this.handleShowNotes}
             showNotes={this.showNotes}
             search={this.handleSearch}
           />
-
           <button
             className="tasks-add-btn"
             onClick={(e) => {
               this.showModal();
             }}
           >
-            Add Task
+            Add Task{" "}
           </button>
-
           <AddTask
             onClose={this.showModal}
             show={this.state.showModal}
             add={this.addTask}
             edit={this.editTask}
-          />
+            newTaskToEdit={this.state.newTaskToEdit}
+          />{" "}
           <EditTask
             onClose={this.showModalEdit}
             clickShowEdit={this.showModalEdit}
             showEdit={this.state.showModalEdit}
-          />
+          />{" "}
           <Notes
             showNotes={this.state.showNotes}
             notes={this.handleShowNotes}
           />
-
-          {/* <AddTask show={this.state.show}>Message in Modal</AddTask> */}
+          {/* <AddTask show={this.state.show}>Message in Modal</AddTask> */}{" "}
         </div>{" "}
       </>
     );

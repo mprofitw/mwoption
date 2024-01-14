@@ -1,0 +1,49 @@
+.header {
+  -ms-flex-preferred-size: 10vh;
+      flex-basis: 10vh;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  height: 10vh;
+  background-color: #0388e5;
+}
+
+.header .header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo {
+  margin-left: 50px;
+}
+
+.header__logo-name {
+  margin-left: 15px;
+  color: white;
+}
+
+.header__image {
+  height: 85px;
+}
+
+.header__login {
+  margin-right: 50px;
+  color: white;
+  font-size: 1.6rem;
+}
+/*# sourceMappingURL=header.css.map */

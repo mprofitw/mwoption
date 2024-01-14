@@ -24,6 +24,9 @@
 .owned-property, .remortgage-property {
   font-size: 1.6rem;
   border-collapse: collapse;
+  border: 1px solid #909090;
+  -webkit-box-shadow: 5px 5px 10px #909090;
+          box-shadow: 5px 5px 10px #909090;
   margin: 30px 30px;
 }
 
@@ -84,8 +87,8 @@
 
 .bad-value {
   color: tomato;
-  font-size: 1.4rem;
-  padding: 7px;
+  font-size: 1.2rem;
+  margin-top: 5px;
 }
 
 .amount-to-transferred {

@@ -8,11 +8,11 @@ const TaskList = (props) => {
       dataId={index}
       task={task}
       deleteTask={props.deleteTask}
-      clickShowEdit = {props.clickShowEdit}
-      showEdit ={props.showEdit}
-      editTask={props.editTask}
+      // clickShowEdit = {props.clickShowEdit}
+      // showEdit ={props.showEdit}
+      edit={props.edit}
       notes= {props.notes}
-      showNotes ={props.showNotes}
+            showNotes ={props.showNotes}
       search={props.search}
     />
     
