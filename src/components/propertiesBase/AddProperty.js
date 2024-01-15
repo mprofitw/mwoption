@@ -116,9 +116,9 @@ const AddProperty = () => {
 
     setEProperty(editPropertyNew);
     
-    let propertiesTemp = [...properties];
-   const abc = propertiesTemp.splice(index, 1,editPropertyNew);
-    setProperties(abc);
+  //   let propertiesTemp = [...properties];
+  //  const abc = propertiesTemp.splice(index, 1,editPropertyNew);
+  //   setProperties(abc);
   //   console.log(properties);
 
     //   let propertiesTemp = [...tasks];
@@ -170,6 +170,7 @@ const AddProperty = () => {
       rent: rent,
       rented: rented,
     };
+    
     setProperties([...properties, newProperty]);
     showConfirmAdd();
     return true;
